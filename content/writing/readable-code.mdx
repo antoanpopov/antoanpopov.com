@@ -1,0 +1,112 @@
+---
+title: "Readable Code"
+date: "2026-04-15"
+excerpt: "Code is read far more than it's written. Most teams know this in theory and ignore it in practice. Here's what actually makes code readable — and why it's the single highest-leverage skill in the field."
+---
+
+I gave a talk on this at MentorMate in 2019. The room was full of people who wrote code every day. Most of them nodded along. Most of them went back to their desks and kept writing unreadable code.
+
+This isn't a criticism. It's a structural problem. Readable code requires discipline over a long time horizon, and software development is full of pressures that push toward the short one. Deadlines. Feature flags. "We'll clean it up later." Later never comes.
+
+So here's the case for investing in readability anyway — not as an aesthetic preference, but as an engineering decision with a measurable return.
+
+---
+
+## Code is read, not written
+
+The ratio varies by codebase, but most studies land around **10:1** — ten reads for every write. In a long-lived production system, it's higher. You write a function once. Then you (and everyone else) reads it every time you modify something near it, every time a bug surfaces in its vicinity, every time you're trying to understand what "the system" does.
+
+The amortized cost of writing unreadable code is enormous. The cost is just spread across many small incidents instead of one large one, which makes it invisible until suddenly it isn't.
+
+## What "readable" actually means
+
+Not short. Not clever. Not well-commented.
+
+Readable code is code where **the intent is obvious at the right level of abstraction**. When I read a function, I should understand what it does without needing to trace through what every line does. When I read a line, I should understand what it does without needing to understand how the system works.
+
+This sounds obvious. It's harder than it sounds.
+
+### Naming is 80% of the problem
+
+The single most impactful thing you can do is name things well. Not `data`, `result`, `temp`, `obj`. Not Hungarian notation. Not abbreviations that make sense today and are mysterious in six months.
+
+Names should say what something *is*, not what type it is or where it came from.
+
+```ts
+// Bad
+const d = await fetch('/api/u')
+const res = d.json()
+
+// Better
+const userResponse = await fetch('/api/users')
+const currentUser = await userResponse.json()
+```
+
+The second version takes two more seconds to type. It saves fifteen seconds every time someone reads it, multiplied by every future reader. The math isn't complicated.
+
+### Functions should do one thing
+
+This one gets repeated so often it's stopped meaning anything. So let me be specific about what it means in practice.
+
+A function that does one thing has **one reason to change**. If you modify the business logic inside it, nothing else should need to change. If you modify how it persists data, the business logic shouldn't need to change.
+
+When a function has multiple reasons to change, it accumulates complexity over time — each change adds a `if (condition)` or an extra parameter, until the function is doing five things and nobody remembers why.
+
+```ts
+// This function does too many things
+async function processOrder(order: Order) {
+  // validates, calculates price, applies discount, saves, sends email
+}
+
+// Better: each function has one job
+async function submitOrder(order: Order) {
+  const validated = validateOrder(order)
+  const priced = calculateOrderTotal(validated)
+  const saved = await saveOrder(priced)
+  await notifyCustomer(saved)
+  return saved
+}
+```
+
+The second version is longer. It's also dramatically easier to test, debug, and modify.
+
+### Comments explain *why*, not *what*
+
+If you need a comment to explain what a line of code does, the line of code is wrong. Rewrite it until it doesn't need the comment.
+
+Comments earn their place when they explain *why* — a non-obvious business rule, a workaround for a third-party bug, a performance decision that looks wrong but isn't.
+
+```ts
+// Bad: explains what, which the code already says
+// Increment the counter
+counter++
+
+// Good: explains why, which the code can't say
+// Orders placed on Sundays are backdated to Friday
+// per the accounting team's reporting requirements (AP-2847)
+const effectiveDate = isSunday(date) ? getPreviousFriday(date) : date
+```
+
+---
+
+## The real reason teams don't write readable code
+
+It's not that they don't know better. Most developers, shown a piece of unreadable code, can identify it as unreadable. The problem is incentives.
+
+**Writing readable code takes longer in the short run.** You have to think carefully about names. You have to refactor until the structure is clean. You have to resist the urge to ship and move on.
+
+**The payoff comes later, and it comes to other people.** The person who maintains your code in eighteen months might not even be on your team today.
+
+The teams that consistently write readable code have internalized something important: the *team* is the unit of productivity, not the individual. Code that's easy for the team to understand is faster for the team to ship. Code that only the author understands creates a bottleneck that doesn't show up in any sprint metric.
+
+---
+
+## A practical starting point
+
+If this all sounds abstract, here's something concrete: **the next time you finish a piece of code, read it as if you've never seen the codebase before.**
+
+Can you understand what it does without reading the surrounding code? Are the names doing the work, or are you relying on context? Would a comment make it clearer, or would a rename make the comment unnecessary?
+
+That's the discipline. It's uncomfortable at first. It gets faster with practice. And it compounds — a codebase where everyone practices it is genuinely faster to work in than one where no one does.
+
+This is the highest-leverage skill in software development that nobody puts on their CV.
