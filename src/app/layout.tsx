@@ -17,18 +17,18 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://antoanpopov.com'),
+  metadataBase: new URL('https://antoanpopov-com.vercel.app'),
   title: {
-    default: 'Antoan Popov',
+    default: 'Antoan Popov — Engineering Manager & TypeScript Engineer',
     template: '%s — Antoan Popov',
   },
   description:
-    'Engineering Manager and full-stack TypeScript engineer based in Varna, Bulgaria. Building software since 2004.',
+    'Engineering Manager and full-stack TypeScript engineer based in Varna, Bulgaria. Twenty years shipping software across fintech, crypto, MedTech, and B2B SaaS. Open to remote roles.',
   openGraph: {
-    title: 'Antoan Popov',
+    title: 'Antoan Popov — Engineering Manager & TypeScript Engineer',
     description:
-      'Engineering Manager and full-stack TypeScript engineer. Building software since 2004.',
-    url: 'https://antoanpopov.com',
+      'Twenty years shipping software. Started with a floppy-disk HTML tutorial in 2004. Engineering Manager and full-stack TypeScript engineer — open to remote roles.',
+    url: 'https://antoanpopov-com.vercel.app',
     siteName: 'Antoan Popov',
     locale: 'en_US',
     type: 'website',
@@ -43,8 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Antoan Popov',
-    description: 'Engineering Manager and full-stack TypeScript engineer. Building software since 2004.',
+    title: 'Antoan Popov — Engineering Manager & TypeScript Engineer',
+    description:
+      'Twenty years shipping software. Started with a floppy-disk HTML tutorial in 2004. Engineering Manager and full-stack TypeScript engineer — open to remote roles.',
     creator: '@AntoanPopoff',
   },
   robots: {
