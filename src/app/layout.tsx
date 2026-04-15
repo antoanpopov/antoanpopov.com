@@ -67,6 +67,8 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate" type="application/rss+xml" title="Antoan Popov — Writing" href="/feed.xml" />
+        <meta name="theme-color" content="#0f1311" />
       </head>
       <body className="min-h-dvh flex flex-col bg-bg text-text">
         <a

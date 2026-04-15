@@ -22,7 +22,7 @@ const components = {
   ),
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
     <li className="flex gap-3 text-text leading-relaxed">
-      <span className="text-accent font-mono shrink-0 mt-px select-none">▸</span>
+      <span className="text-accent font-mono shrink-0 mt-px select-none" aria-hidden="true">▸</span>
       <span>{(props as { children?: React.ReactNode }).children}</span>
     </li>
   ),

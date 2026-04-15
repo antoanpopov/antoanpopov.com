@@ -56,7 +56,7 @@ export default function WorkEntry({
         <ul className="space-y-2.5 mb-5" role="list">
           {bullets.map((bullet, i) => (
             <li key={i} className="flex gap-3 text-text leading-relaxed text-sm">
-              <span className="text-accent font-mono shrink-0 mt-px">▸</span>
+              <span className="text-accent font-mono shrink-0 mt-px" aria-hidden="true">▸</span>
               <span>{bullet}</span>
             </li>
           ))}
@@ -64,11 +64,13 @@ export default function WorkEntry({
       )}
 
       {tags && tags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-4">
+        <ul className="flex flex-wrap gap-2 mt-4 list-none" role="list" aria-label={`Technologies used at ${company}`}>
           {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+            <li key={tag}>
+              <Tag>{tag}</Tag>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </article>
   )

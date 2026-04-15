@@ -29,19 +29,19 @@ export default function Contact() {
           <p className="text-text-muted mb-4">You can also find me at:</p>
           <ul className="space-y-3 font-mono text-sm" role="list">
             <li>
-              <span className="text-text-faint mr-3">·</span>
+              <span className="text-text-muted mr-3" aria-hidden="true">·</span>
               <ExternalLink href="https://www.linkedin.com/in/antoan-popov">
                 LinkedIn — linkedin.com/in/antoan-popov
               </ExternalLink>
             </li>
             <li>
-              <span className="text-text-faint mr-3">·</span>
+              <span className="text-text-muted mr-3" aria-hidden="true">·</span>
               <ExternalLink href="https://github.com/antoanpopov">
                 GitHub — github.com/antoanpopov
               </ExternalLink>
             </li>
             <li>
-              <span className="text-text-faint mr-3">·</span>
+              <span className="text-text-muted mr-3" aria-hidden="true">·</span>
               <ExternalLink href="https://twitter.com/AntoanPopoff">
                 X — @AntoanPopoff
               </ExternalLink>
