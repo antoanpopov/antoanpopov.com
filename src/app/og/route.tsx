@@ -49,7 +49,7 @@ export async function GET() {
                     lineHeight: 1.1,
                     marginBottom: '40px',
                     display: 'flex',
-                    flexDirection: 'column',
+                    flexDirection: 'row',
                 }}
             >
                 <span>Building software</span>
