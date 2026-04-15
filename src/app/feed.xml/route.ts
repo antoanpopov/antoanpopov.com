@@ -1,6 +1,6 @@
 import { getAllPosts } from '@/lib/posts'
 
-const SITE_URL = 'https://antoanpopov-com.vercel.app'
+const SITE_URL = 'https://antoanpopov.com'
 
 export async function GET() {
   const posts = getAllPosts()

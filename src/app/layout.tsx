@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://antoanpopov-com.vercel.app'),
+  metadataBase: new URL('https://antoanpopov.com'),
   title: {
     default: 'Antoan Popov — Engineering Manager & TypeScript Engineer',
     template: '%s — Antoan Popov',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Antoan Popov — Engineering Manager & TypeScript Engineer',
     description:
       'Twenty years shipping software. Started with a floppy-disk HTML tutorial in 2004. Engineering Manager and full-stack TypeScript engineer — open to remote roles.',
-    url: 'https://antoanpopov-com.vercel.app',
+    url: 'https://antoanpopov.com',
     siteName: 'Antoan Popov',
     locale: 'en_US',
     type: 'website',
