@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm create:*)",
+      "Bash(npm install:*)",
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(export PATH=\"$PATH:/c/Users/cowwa/AppData/Roaming/npm\")"
+    ]
+  }
+}
