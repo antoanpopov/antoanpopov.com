@@ -148,11 +148,13 @@ export default function Home() {
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-2" role="list" aria-label="Skills and technologies">
+          <ul className="flex flex-wrap gap-2 list-none m-0 p-0" role="list" aria-label="Skills and technologies">
             {expertise.map(({ label, variant }) => (
-              <Tag key={label} variant={variant}>{label}</Tag>
+              <li key={label}>
+                <Tag variant={variant}>{label}</Tag>
+              </li>
             ))}
-          </div>
+          </ul>
         </Section>
 
         <Divider />
