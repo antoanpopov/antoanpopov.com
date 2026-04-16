@@ -17,11 +17,12 @@ const workEntries = [
     intro:
       'Crypto trading firm. Frontend Team Lead for a team of 5. Departed April 2026 as part of a company-wide restructuring affecting ~95% of staff.',
     bullets: [
-      'Refactored a 30,000-line monolithic server.js into a worker-thread architecture, moving heavy KafkaJS order-book traffic off the main thread. Overturned the team\'s "Node just sucks" consensus by proving the bottleneck was design, not the runtime.',
+      'Refactored a 30,000-line monolithic server.js into a worker-thread architecture, moving heavy KafkaJS order-book traffic off the main thread. Overturned the team\'s "Node just sucks" consensus by proving the bottleneck was design, not the runtime. Open-sourced the generalized pattern with benchmarks.',
       'Built a client-facing OTC crypto trading platform on Next.js + React + TypeScript with real-time WebSocket-driven order book updates.',
       'Built a parallel internal admin platform with API key management, reporting, and ops tooling.',
     ],
     tags: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Worker Threads', 'KafkaJS'],
+    repoUrl: 'https://github.com/antoanpopov/node-worker-pool-stream-processor',
   },
   {
     company: 'Nexo',

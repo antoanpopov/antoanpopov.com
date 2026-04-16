@@ -6,6 +6,7 @@ interface WorkEntryProps {
   bullets: string[]
   tags?: string[]
   link?: string
+  repoUrl?: string
 }
 
 function Tag({ children }: { children: string }) {
@@ -24,6 +25,7 @@ export default function WorkEntry({
   bullets,
   tags,
   link,
+  repoUrl,
 }: WorkEntryProps) {
   return (
     <article className="py-10">
@@ -61,6 +63,19 @@ export default function WorkEntry({
             </li>
           ))}
         </ul>
+      )}
+
+      {repoUrl && (
+        <p className="text-sm mb-5">
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-accent hover:text-text transition-colors"
+          >
+            ↗ View open-source reference repo
+          </a>
+        </p>
       )}
 
       {tags && tags.length > 0 && (
